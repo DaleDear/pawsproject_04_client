@@ -8,6 +8,17 @@ import {
   getVisitFrequencies,
   getPetTypes,
   getActions,
+  getUserVisits,
+  updateVisitType,
+  updateVisitFrequency,
+  updatePetType,
+  updateActions,
+  deleteVisit,
+  getVisitById,
+  updateVisit,
+  addActionToVisit, 
+  removeActionFromVisit,
+  
 } from '../../api/visitApi';
 
 export const handleFetchVisitTypes = async () => {
@@ -106,6 +117,107 @@ export const handleGetActions = async (token) => {
     return data;
   } catch (error) {
     console.error("Error fetching actions:", error);
+    throw error;
+  }
+};
+
+export const handleGetUserVisits = async (token) => {
+  try {
+    const data = await getUserVisits(token);
+    return data;
+  } catch (error) {
+    console.error("Error fetching user visits:", error);
+    throw error;
+  }
+};
+
+export const handleUpdateVisitType = async (token, visitId, visitTypeId) => {
+    try {
+      const data = await updateVisitType(token, visitId, visitTypeId);
+      return data;
+    } catch (error) {
+      console.error("Error updating visit type:", error);
+      throw error;
+    }
+  };
+  
+  export const handleUpdateVisitFrequency = async (token, visitId, frequencyId) => {
+    try {
+      const data = await updateVisitFrequency(token, visitId, frequencyId);
+      return data;
+    } catch (error) {
+      console.error("Error updating visit frequency:", error);
+      throw error;
+    }
+  };
+  
+  export const handleUpdatePetType = async (token, visitId, petTypeId) => {
+    try {
+      const data = await updatePetType(token, visitId, petTypeId);
+      return data;
+    } catch (error) {
+      console.error("Error updating pet type:", error);
+      throw error;
+    }
+  };
+  
+  export const handleUpdateActions = async (token, visitId, actionIds) => {
+    try {
+      const data = await updateActions(token, visitId, actionIds);
+      return data;
+    } catch (error) {
+      console.error("Error updating actions:", error);
+      throw error;
+    }
+  };
+  
+  export const handleDeleteVisit = async (token, visitId) => {
+    try {
+      await deleteVisit(token, visitId);
+    } catch (error) {
+      console.error("Error deleting visit:", error);
+      throw error;
+    }
+  };
+
+  export const handleGetVisitById = async (token, visitId) => {
+    try {
+        const data = await getVisitById(token, visitId);
+        return data;
+    } catch (error) {
+        console.error("Error fetching visit:", error);
+        throw error;
+    }
+  };
+
+  export const handleUpdateVisit = async (token, visitId, updatedData) => {
+    try {
+        const data = await updateVisit(token, visitId, updatedData);
+        return data;
+    } catch (error) {
+        console.error("Error updating visit:", error);
+        throw error;
+    }
+  };
+
+  export const handleAddActionToVisit = async (token, visitId, actionId) => {
+  try {
+    const data = await addActionToVisit(token, visitId, actionId);
+    // Perform any additional logic or data manipulation
+    return data;
+  } catch (error) {
+    console.error("Error adding action to visit:", error);
+    throw error;
+  }
+};
+
+export const handleRemoveActionFromVisit = async (token, visitId, actionId) => {
+  try {
+    const data = await removeActionFromVisit(token, visitId, actionId);
+    // Perform any additional logic or data manipulation
+    return data;
+  } catch (error) {
+    console.error("Error removing action from visit:", error);
     throw error;
   }
 };

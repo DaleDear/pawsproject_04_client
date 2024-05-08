@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   handleGetVisitTypes,
   handleGetVisitFrequencies,
@@ -18,6 +19,7 @@ export const VisitRequestForm = () => {
   const [selectedPetType, setSelectedPetType] = useState(null);
   const [actions, setActions] = useState([]);
   const [selectedActions, setSelectedActions] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,6 +61,7 @@ export const VisitRequestForm = () => {
       const data = await handleCreateVisit(visitData, token);
       console.log("Visit request submitted:", data);
       resetForm();
+      navigate('/user-visits')
     } catch (error) {
       console.error("Error submitting visit request:", error);
     }

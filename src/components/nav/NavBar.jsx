@@ -1,5 +1,5 @@
-import { NavLink, useNavigate } from "react-router-dom"
-import "./Navbar.css"
+import { NavLink, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 export const NavBar = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export const NavBar = () => {
   };
 
   return (
-    <nav className="bg-[#372772] py-4 px-6 text-white flex justify-between items-center">
+    <nav className="bg-blue-800 py-4 px-6 text-white flex justify-between items-center">
       <ul className="flex space-x-8">
         <li className="navbar__item">
           <NavLink
@@ -37,6 +37,26 @@ export const NavBar = () => {
             Client Reviews
           </NavLink>
         </li>
+        {isLoggedIn && (
+          <>
+            <li className="navbar__item">
+              <NavLink
+                className="hover:text-[#A1E8AF] transition-colors duration-300"
+                to="/user-visits"
+              >
+                My Visits
+              </NavLink>
+            </li>
+            <li className="navbar__item">
+              <NavLink
+                className="hover:text-[#A1E8AF] transition-colors duration-300"
+                to="/visit-request"
+              >
+                Request a Visit
+              </NavLink>
+            </li>
+          </>
+        )}
         {!isLoggedIn && (
           <>
             <li className="navbar__item">

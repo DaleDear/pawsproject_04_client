@@ -91,3 +91,172 @@ export const getActions = (token) => {
     return response.json();
   });
 };
+
+export const getUserVisits = (token) => {
+  return fetch("http://localhost:8000/visits/my-visits", {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error fetching user visits");
+    }
+    return response.json();
+  });
+};
+
+export const updateVisitType = (token, visitId, visitTypeId) => {
+  return fetch(`http://localhost:8000/api/visits/${visitId}/`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify({ visit_type: visitTypeId }),
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error updating visit type");
+    }
+    return response.json();
+  });
+};
+
+export const updateVisitFrequency = (token, visitId, frequencyId) => {
+  return fetch(`http://localhost:8000/api/visits/${visitId}/`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify({ visit_frequency: frequencyId }),
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error updating visit frequency");
+    }
+    return response.json();
+  });
+};
+
+export const updatePetType = (token, visitId, petTypeId) => {
+  return fetch(`http://localhost:8000/api/visits/${visitId}/`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify({ pet_type: petTypeId }),
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error updating pet type");
+    }
+    return response.json();
+  });
+};
+
+export const updateActions = (token, visitId, actionIds) => {
+  return fetch(`http://localhost:8000/api/visits/${visitId}/`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify({ actions: actionIds }),
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error updating actions");
+    }
+    return response.json();
+  });
+};
+
+export const deleteVisit = (token, visitId) => {
+  return fetch(`http://localhost:8000/visits/${visitId}`, {
+    method: "DELETE",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error deleting visit");
+    }
+  });
+};
+
+export const getVisitById = (token, visitId) => {
+  return fetch(`http://localhost:8000/visits/${visitId}`, {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error fetching visit");
+    }
+    return response.json();
+  });
+};
+
+export const updateVisit = (token, visitId, updatedData) => {
+  return fetch(`http://localhost:8000/visits/${visitId}`, {
+    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify(updatedData),
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error updating visit");
+    }
+    return response.json();
+  });
+};
+
+export const addActionToVisit = async (token, visitId, actionId) => {
+  try {
+    const response = await fetch(`http://localhost:8000/visits/${visitId}/actions/${actionId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Token ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to add action to visit');
+    }
+
+    // Return the response data if needed
+    return response.json();
+  } catch (error) {
+    console.error('Error adding action to visit:', error.message);
+    throw error;
+  }
+};
+
+// Function to remove an action from a visit
+export const removeActionFromVisit = async (token, visitId, actionId) => {
+  try {
+    const response = await fetch(`http://localhost:8000/visits/${visitId}/actions/remove/${actionId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Token ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to remove action from visit');
+    }
+
+    // Return the response data if needed
+    return response.json();
+  } catch (error) {
+    console.error('Error removing action from visit:', error.message);
+    throw error;
+  }
+};
