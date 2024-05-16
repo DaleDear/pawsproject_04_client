@@ -190,7 +190,10 @@ export const VisitRequestForm = () => {
         </div>
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit Request</button>
       </form>
+    <div className="mt-8 flex justify-center">
+      <img src="/images/PawsLogo-image.jpg" alt="Paws and Relax Logo" className="w-40 h-auto" />
     </div>
-  );
+  </div>
+);
 };
 

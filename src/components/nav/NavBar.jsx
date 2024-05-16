@@ -16,7 +16,7 @@ export const NavBar = () => {
         <li className="navbar__item">
           <NavLink
             className="hover:text-[#A1E8AF] transition-colors duration-300"
-            to="/bios"
+            to="/"
           >
             Home
           </NavLink>
@@ -26,7 +26,7 @@ export const NavBar = () => {
             className="hover:text-[#A1E8AF] transition-colors duration-300"
             to="/bios"
           >
-            Paws Bio
+            About Paws
           </NavLink>
         </li>
         <li className="navbar__item">
