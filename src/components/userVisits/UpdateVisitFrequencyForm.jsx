@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react';
 import { handleUpdateVisitFrequency } from '../handlers/visitHandler';
 
 const UpdateVisitFrequencyForm = ({ visitId }) => {
@@ -26,4 +26,4 @@ const UpdateVisitFrequencyForm = ({ visitId }) => {
   );
 };
 
-export default UpdateVisitFrequencyForm;
+export default UpdateVisitFrequencyForm; */

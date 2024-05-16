@@ -30,12 +30,12 @@ export const UserVisits = () => {
           <div key={visit.id} className="border border-gray-300 rounded-md p-4 mb-4">
               <div className="flex justify-between items-center">
                   <div className="text-left">
-                    <p>Start Date: {visit.visit_start_date}</p>
-                    <p>End Date: {visit.visit_end_date}</p>
-                    <p>Visit Type: {visit.visit_type_name}</p>
-                    <p>Visit Frequency: {visit.visit_frequency_description}</p>
-                    <p>Pet Type: {visit.pet_type_name}</p>
-                    <p>Actions:</p>
+                    <p><span className="font-bold">Start Date:</span> {visit.visit_start_date}</p>
+                    <p><span className="font-bold">End Date:</span> {visit.visit_end_date}</p>
+                    <p><span className="font-bold">Visit Type:</span> {visit.visit_type_name}</p>
+                    <p><span className="font-bold">Visit Frequency:</span> {visit.visit_frequency_description}</p>
+                    <p><span className="font-bold">Pet Type:</span> {visit.pet_type_name}</p>
+                    <p><span className="font-bold">Actions:</span></p>
                     <ul>
                         {visit.actions.map((action) => (
                          <li key={action.id}>{action.action_type}</li>
@@ -59,6 +59,9 @@ export const UserVisits = () => {
               </div>
           </div>     
       ))}
+      <div className="flex justify-center mt-8">
+        <img src="/images/PawsLogo-image.jpg" alt="Paws and Relax Logo" className="w-40 h-auto" />
+      </div>
     </div>
   );
 };

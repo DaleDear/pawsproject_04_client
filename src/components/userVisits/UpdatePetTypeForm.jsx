@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react';
 import { handleUpdatePetType } from '../handlers/visitHandler';
 
 const UpdatePetTypeForm = ({ visitId }) => {
@@ -26,4 +26,4 @@ const UpdatePetTypeForm = ({ visitId }) => {
   );
 };
 
-export default UpdatePetTypeForm;
+export default UpdatePetTypeForm; */

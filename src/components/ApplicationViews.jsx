@@ -10,6 +10,9 @@ import { UserVisits } from "./userManagement/UserVisits.jsx";
 //import UpdatePetTypeForm from "./userVisits/UpdatePetTypeForm";
 //import UpdateActionsForm from "./userVisits/UpdateActionsForm";
 import { EditVisitDetails } from "./userVisits/EditVisitDetails.jsx";
+import BiosPage from "../bios/BiosPage.jsx";
+import Reviews from "./reviews/Reviews.jsx";
+
 
 export const ApplicationViews = () => {
   return (
@@ -17,6 +20,8 @@ export const ApplicationViews = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/bios" element={<BiosPage />} />
+      <Route path="/reviews" element={<Reviews />} />
       <Route element={<Authorized />}>
         <Route path="/visit-request" element={<VisitRequestForm />} />
         <Route path="/user-visits" element={<UserVisits />} />

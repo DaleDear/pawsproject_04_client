@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react';
 import { handleUpdateActions } from '../handlers/visitHandler';
 
 const UpdateActionsForm = ({ visitId }) => {
@@ -38,11 +38,11 @@ const UpdateActionsForm = ({ visitId }) => {
           onChange={handleActionChange}
         />
         Action 2
-        {/* Add more action checkboxes as needed */}
-      </label>
+        {/* Add more action checkboxes as needed */
+     /*  </label>
       <button type="submit">Update</button>
     </form>
   );
 };
 
-export default UpdateActionsForm;
+export default UpdateActionsForm;  */
